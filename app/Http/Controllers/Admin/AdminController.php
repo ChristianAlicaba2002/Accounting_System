@@ -103,15 +103,20 @@ class AdminController extends Controller
         // Validate and get the validation result
         $validator = Validator::make($request->all(), [
             'branchName' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
+
+        // 'remember' => 'nullable|boolean'
+
 
         // Check if validation fails
         if ($validator->fails()) {
             return redirect('/')->withErrors($validator)->withInput();
         }
 
-        // Attempt to authenticate
+        // $remember = (bool) $request->input('remember', false);
+
+        // Attempt to authenticate with remember me
         if (Auth::attempt(['branchName' => $request->branchName, 'password' => $request->password])) {
             $request->session()->regenerate();
             return redirect('/')->with('AccountFound', 'Welcome!!');

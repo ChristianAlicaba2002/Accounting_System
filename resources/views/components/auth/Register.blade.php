@@ -18,7 +18,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
             min-height: 100vh;
             font-size: 0.9rem;
         }
@@ -28,6 +28,8 @@
             border-radius: 12px;
             backdrop-filter: blur(5px);
             background: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            align-items: center;
         }
 
         .login-header img {
@@ -36,9 +38,9 @@
         }
 
         .form-control {
-            border-radius: 6px;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.9rem;
+            border-radius: 4px;
+            padding: 0.3rem 0.5rem;
+            font-size: 0.8rem;
         }
 
         .form-control:focus {
@@ -49,8 +51,8 @@
         .btn-primary {
             background-color: #4C6FFF;
             border: none;
-            padding: 0.5rem;
-            font-size: 0.9rem;
+            padding: 0.3rem;
+            font-size: 0.8rem;
             border-radius: 6px;
             transition: all 0.3s ease;
         }
@@ -71,7 +73,15 @@
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem !important;
+        }
+
+        .card-body {
+            padding: 1rem !important;
         }
     </style>
 </head>

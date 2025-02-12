@@ -7,39 +7,49 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ExportProductExcel;
 
+//Login Page
 Route::get('/', function () {
     return view('components.auth.Login');
 })->name('Auth.Login');
+
+//Register Page
 Route::get('/register', function () {
     return view('components.auth.Register');
 })->name('Auth.Register');
 
+//Ledger Page
 Route::get('/ledger', function () {
     return view('layouts.navigationButton.Ledger');
 })->name('LedgerPage');
 
+//Invocer Page
 Route::get('/invoices', function () {
     return view('layouts.navigationButton.Invoces');
 })->name('InvoicesPage');
 
+//Report Page
 Route::get('/reports', function () {
     return view('layouts.navigationButton.Reports');
 })->name('ReportsPage');
 
+//Vendor Page
 Route::get('/vendors', function () {
     $products = DB::table('products')->where('adminId', Auth::user()->adminId)->get();
     return view('layouts.Vendor', compact('products'));
 })->name('vendors');
 
+//Setting Page
 Route::get('/settings', function () {
     return view('layouts.Setting');
 })->name('SettingsPage');
 
+//Admin Functions
 Route::post('/register/admin', [AdminController::class, 'CreateAdmin'])->name('admin.register');
 Route::post('/login/admin', [AdminController::class, 'LoginAdmin'])->name('admin.login');
 Route::post('/logout/admin', [AdminController::class, 'logoutAdmin'])->name('admin.logout');
 
 
+//Products Functions
 Route::post('/create/product', [ProductController::class, 'CreateProduct'])->name('product.create');
 Route::delete('/delete/product/{productId}', [ProductController::class, 'DeleteProduct'])->name('product.delete');
 Route::get('/edit/product/{productId}', [ProductController::class, 'EditProduct'])->name('product.edit');
